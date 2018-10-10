@@ -8,6 +8,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://root:viveros2@ds113122.mlab.com:13122/cordova');
+
+
 var swig = require('swig');
 // view engine setup
 app.engine('html', swig.renderFile);
