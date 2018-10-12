@@ -6,7 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+const standupRouter = require('./routes/standup')
+const itemRouter = require('./routes/item')
 var app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://root:viveros2@ds113122.mlab.com:13122/cordova');
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/standup', standupRouter);
+app.use('/api/item', itemRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
