@@ -11,9 +11,20 @@ exports.create = (req, res) => {
     impediment,
   });
 
-  entry.save();
+  entry.save((err) => {
+    if (err) {
+      const errMsg = `Sorry, there was an error saviing the stand-up meetting ${err}`;
+      res.render('newnote', {
+        title: 'Standup - New Note (error)',
+        message: errMsg,
+      });
+    }
+    else {
+      console.log('New note was saved');
+      res.redirect(301, '/');
+    }
+  });
 
-  res.redirect(301, '/');
 };
 
 exports.list = (req, res) => {
