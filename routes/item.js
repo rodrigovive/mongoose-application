@@ -8,4 +8,6 @@ router.put('/', itemApiController.editOne);
 
 router.post('/', itemApiController.createOne);
 
+router.post('/specialitem', itemApiController.createOneSpecial);
+
 module.exports = router;

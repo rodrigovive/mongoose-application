@@ -9,8 +9,6 @@ const itemSchema = new mongoose.Schema({
   category: String,
   estvalue: Number,
 
-}, {
-  strict: false,
 });
 itemSchema.plugin(timestamps, {created: 'createdOn', lastUpdated: 'updatedOn'});
 // itemSchema.plugin(updateOn);

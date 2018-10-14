@@ -17,7 +17,6 @@ const itemUpdateHelper = (req, res) => {
       },
     });
     const InsuredItem = mongoose.model('Item', insuredItemSchema);
-    console.log(req.body)
 
     if (!req.body.hasOwnProperty('requiresInsurance')) {
       updateItem = new InsuredItem(req.body);
