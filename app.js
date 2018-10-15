@@ -6,12 +6,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const standupRouter = require('./routes/standup')
-const itemRouter = require('./routes/item')
+const standupRouter = require('./routes/standup');
+const itemRouter = require('./routes/item');
 var app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://root:viveros2@ds113122.mlab.com:13122/cordova');
-
+mongoose.Promise = require('bluebird');
 
 var swig = require('swig');
 // view engine setup

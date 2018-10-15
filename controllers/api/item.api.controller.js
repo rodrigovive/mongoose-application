@@ -6,10 +6,13 @@ const getItem = (req, res) => {
 
 };
 
-const listItem = (req, res) => {
-  Item.find({}, (err, items) => {
+const listItem = async (req, res) => {
+  try {
+    let items = await Item.find({}).exec();
     res.json(items);
-  });
+  } catch (e) {
+    throw new Error(e);
+  }
 };
 
 const createItem = (req, res) => {
